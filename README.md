@@ -41,19 +41,32 @@ You can switch between REST and SOAP by passing soap parameter.
 
 Supported APIs
 -------
-get_auth_uri
-authenticate
-query
-query_all
-query_more
-search
-get
-post
+    get_auth_uri(self, **kwargs)
+    
+    authenticate(self, soap=None, **kwargs)
+    
+    query(self, query_string, soap=None)
+    
+    query_all(self, query_string, soap=None)
+    
+    query_more(self, query_url, soap=None)
+    
+    search(self, search_string, soap=None)
+    
+    get(self, get_url, params=None, soap=None, **kwargs)
+    
+    post(self, post_url, data, soap=None)
 
-sObject:
-describe
-create
-update
-delete
-post
-get
+On sObject:
+
+    describe(self, soap=None)
+    
+    create(self, data, soap=None)
+    
+    update(self, data, soap=None)
+    
+    delete(self, record_id, soap=None)
+    
+    post(self, data, record_id=None, soap=None)
+    
+    get(self, record_id=None, params=None, soap=None)
