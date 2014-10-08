@@ -1,7 +1,7 @@
 from salesforceApi import SalesforceAPI
 from login import LoginWithSoapAPI
-import utils
 from sObject import SObject
+import utils
 import xml.dom.minidom
 
 
@@ -121,16 +121,13 @@ class SalesforceSoapAPI(SalesforceAPI):
     def __send_request(self, method, url, action, **kwargs):
         headers = utils.xml_content_headers(len(kwargs['data']), action)
 
-        try:
-            request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
+        request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
 
-            return utils.send_request(method,
-                                      self.httplib,
-                                      request_url,
-                                      headers,
-                                      **kwargs)
-        except TypeError:
-            raise
+        return utils.send_request(method,
+                                  self.httplib,
+                                  request_url,
+                                  headers,
+                                  **kwargs)
 
     class Action(object):
         QUERY = 'query'
@@ -214,16 +211,13 @@ class SoapSObject(SObject):
     def __send_request(self, method, url, action, **kwargs):
         headers = utils.xml_content_headers(len(kwargs['data']), action)
 
-        try:
-            request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
+        request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
 
-            return utils.send_request(method,
-                                      self.httplib,
-                                      request_url,
-                                      headers,
-                                      **kwargs)
-        except TypeError:
-            raise
+        return utils.send_request(method,
+                                  self.httplib,
+                                  request_url,
+                                  headers,
+                                  **kwargs)
 
     class Action(object):
         DESCRIBE = 'describeSObject'

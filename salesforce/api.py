@@ -3,8 +3,8 @@ from salesforceRestApi import SalesforceRestAPI
 from version import Version
 from httpClient import HTTPConnection
 from httpClient import Requests
-import utils
 from urlResources import RestUrlResources, SoapUrlResources
+import utils
 
 
 class Salesforce(object):
@@ -67,6 +67,11 @@ class Salesforce(object):
         utils.validate_boolean_input(sandbox, 'sanbox')
 
         self.__sandbox = sandbox
+
+        if self.__api is not None:
+            print self.__api.url_resources.sandbox
+            self.__api.url_resources.sandbox = sandbox
+            self.__api.url_resources.domain = 'test' if self.sandbox else 'login'
 
     @property
     def soap(self):
@@ -150,34 +155,22 @@ class SObjectFacade(object):
         self.soap = soap
 
     def describe(self, soap=None):
-        api = self.__get_api(soap)
-
-        return api.__getattr__(self.name).describe()
+        return self.__get_api(soap).__getattr__(self.name).describe()
 
     def create(self, data, soap=None):
-        api = self.__get_api(soap)
-
-        return api.__getattr__(self.name).create(data)
+        return self.__get_api(soap).__getattr__(self.name).create(data)
 
     def update(self, data, soap=None):
-        api = self.__get_api(soap)
-
-        return api.__getattr__(self.name).update(data)
+        return self.__get_api(soap).__getattr__(self.name).update(data)
 
     def delete(self, record_id, soap=None):
-        api = self.__get_api(soap)
-
-        return api.__getattr__(self.name).delete(record_id)
+        return self.__get_api(soap).__getattr__(self.name).delete(record_id)
 
     def post(self, data, record_id=None, soap=None):
-        api = self.__get_api(soap)
-
-        return api.__getattr__(self.name).post(data, record_id)
+        return self.__get_api(soap).__getattr__(self.name).post(data, record_id)
 
     def get(self, record_id=None, params=None, soap=None):
-        api = self.__get_api(soap)
-
-        return api.__getattr__(self.name).get(record_id, params)
+        return self.__get_api(soap).__getattr__(self.name).get(record_id, params)
 
     def __get_api(self, soap):
         if soap is None:

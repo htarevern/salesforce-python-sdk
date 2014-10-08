@@ -1,5 +1,5 @@
 import requests
-from exception import RequestFailed
+from exception import RequestFailed, AuthenticationFailed
 
 
 def json_content_headers(access_token):
@@ -183,7 +183,7 @@ def get_element_by_name(xml_string, element_name):
 def authenticate(func):
     def authenticate_and_call(self, *args, **kwargs):
         if self.auth is None or not self.auth.is_authenticated():
-            raise Exception('Authentication Failed.')
+            raise AuthenticationFailed("You need to first authentificate!")
 
         return func(self, *args, **kwargs)
 

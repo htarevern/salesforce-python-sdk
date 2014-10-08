@@ -2,9 +2,9 @@ from login import LoginWithRestAPI
 from urlResources import ResourcesName
 from salesforceApi import SalesforceAPI
 from exception import AuthenticationFailed
+from sObject import SObject
 import utils
 import json
-from sObject import SObject
 
 
 class SalesforceRestAPI(SalesforceAPI):
@@ -128,16 +128,13 @@ class SalesforceRestAPI(SalesforceAPI):
     def __send_request(self, method, url, **kwargs):
         headers = utils.json_content_headers(self.auth.access_token)
 
-        try:
-            request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
+        request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
 
-            return utils.send_request(method,
-                                      self.httplib,
-                                      request_url,
-                                      headers,
-                                      **kwargs)
-        except TypeError:
-            raise
+        return utils.send_request(method,
+                                  self.httplib,
+                                  request_url,
+                                  headers,
+                                  **kwargs)
 
 
 class RestSObject(SObject):
@@ -216,13 +213,10 @@ class RestSObject(SObject):
     def __send_request(self, method, url, **kwargs):
         headers = utils.json_content_headers(self.auth.access_token)
 
-        try:
-            request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
+        request_url = utils.get_request_url(url, self.auth.instance_url, self.url_resources.get_resource_url())
 
-            return utils.send_request(method,
-                                      self.httplib,
-                                      request_url,
-                                      headers,
-                                      **kwargs)
-        except TypeError:
-            raise
+        return utils.send_request(method,
+                                  self.httplib,
+                                  request_url,
+                                  headers,
+                                  **kwargs)

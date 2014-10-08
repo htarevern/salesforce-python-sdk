@@ -1,7 +1,7 @@
-import urllib
-import utils
 from urlparse import urlparse
 from exception import AuthenticationFailed
+import urllib
+import utils
 import xml.dom.minidom
 
 
