@@ -90,7 +90,7 @@ class SalesforceRestAPI(SalesforceAPI):
             ResourcesName.get_resource_name("search"))
 
         params = {'q': search_string}
-        print params
+
         return self.get(search_url, params)
 
     @utils.authenticate
@@ -104,7 +104,7 @@ class SalesforceRestAPI(SalesforceAPI):
                                    params=params)
 
     @utils.authenticate
-    def post(self, data, post_url):
+    def post(self, post_url, data):
         return self.__send_request('POST',
                                    post_url,
                                    data=json.dumps(data))

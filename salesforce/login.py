@@ -60,7 +60,7 @@ class LoginWithRestAPI(Login):
         headers = {'content-type': 'application/x-www-form-urlencoded'}
         endpoint_url = self.__get_auth_endpoint()
         params = self.__get_server_or_user_params()
-        print params
+
         return endpoint_url + '?' + urllib.urlencode(params)
 
     def authenticate(self, **kwargs):

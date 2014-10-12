@@ -69,7 +69,6 @@ class Salesforce(object):
         self.__sandbox = sandbox
 
         if self.__api is not None:
-            print self.__api.url_resources.sandbox
             self.__api.url_resources.sandbox = sandbox
             self.__api.url_resources.domain = 'test' if self.sandbox else 'login'
 

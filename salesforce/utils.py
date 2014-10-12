@@ -141,8 +141,7 @@ def verify_response(response):
 
 def send_request(method, httplib, url, headers, **kwargs):
     print "sending request " + url + "\n" + method
-    print headers
-    print kwargs
+
     response = httplib(method,
                        url,
                        headers=headers,
@@ -159,9 +158,6 @@ def send_request(method, httplib, url, headers, **kwargs):
 
 
 def get_request_url(url, instance_url, resource_url):
-    print url
-    print resource_url
-    print instance_url
     if url.startswith(instance_url + resource_url):
         return url
 
