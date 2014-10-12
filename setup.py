@@ -19,6 +19,7 @@ setup(
     author_email='htarevern@yahoo.com',
     url='https://github.com/htarevern/salesforce-python-sdk',
     packages=['salesforce'],
+    package_data={'salesforce': ['README.md', 'LICENSE']},
     install_requires=INSTALL_REQUIRES,
     keywords="Salesforce python sdk salesforce.com salesforce-python-sdk SalesforcePythonSDK",
     license=license_text
