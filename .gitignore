@@ -3,3 +3,5 @@
 *.egg
 .idea/*
 test*
+build/
+dist/

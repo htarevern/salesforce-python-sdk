@@ -40,7 +40,7 @@ You can switch between REST and SOAP by passing soap parameter.
 
 
 Supported APIs
--------
+--------------
     get_auth_uri(self, **kwargs)
     
     authenticate(self, soap=None, **kwargs)
