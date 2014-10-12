@@ -11,7 +11,7 @@ with open('README.md') as f:
     readme_text = f.read()
 
 setup(
-    name='salesforce',
+    name='salesforce-python-sdk',
     version='0.1',
     description='This is Salesforce Python SDK for REST and SOAP APIs',
     long_description=readme_text,
