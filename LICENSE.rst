@@ -1,4 +1,4 @@
-Copyright © 2014, contributors of salesforce-python-sdk
+Copyright © 2014, Hormoz Tarevern and salesforce.com
 
 All rights reserved.
 
