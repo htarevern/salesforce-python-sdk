@@ -12,7 +12,7 @@ with open('README.rst') as f:
 
 setup(
     name='salesforce-python-sdk',
-    version='0.1.2',
+    version='0.1.3',
     description='This is Salesforce Python SDK for REST and SOAP APIs',
     long_description=readme_text,
     author='Hormoz Tarevern',
